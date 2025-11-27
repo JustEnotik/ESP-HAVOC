@@ -19,6 +19,7 @@
       A compact, low-power Wi-Fi attack and monitoring tool using the MakerGO SuperMini (ESP32-C3). Currently features Packet Monitor (sniffing) and Beacon Spammer (signal flooding).
 </p>
 
+<!-- Плашки / Бейджи у кого я пизжу код -->
 <h2 align="center">Credits</h2>
 <p align="center">
       <a href="https://guns.lol/justenotik"><img src="https://img.shields.io/badge/Main%20Development-JustEnotik-d6d6d6?style=flat" alt="Main Developer Badge"></a>
