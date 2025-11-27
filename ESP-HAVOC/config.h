@@ -57,6 +57,6 @@ const float VOLTAGE_CHARGE = 4.75;         // Минимальное напря�
 const float VOLTAGE_MULTIPLIER = 2.0;      // Коофицент делителя
 
 // Другое
-const unsigned short FIRMWARE_BUILD = 1;   // Билд прошивки
+const unsigned short SETTINGS_VERSION = 1;   // Билд прошивки
 
 #endif
