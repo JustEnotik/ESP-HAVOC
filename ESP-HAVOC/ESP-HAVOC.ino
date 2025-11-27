@@ -41,8 +41,7 @@ void listMenu(
   const unsigned char* const* icons,
   uint8_t itemCount,
   // bool checkMarkSelectedIcon,
-  void (*onSelect)(uint8_t selectedItem)
-) {
+  void (*onSelect)(uint8_t selectedItem)) {
   lastUpDebounceTime = millis();
   lastDownDebounceTime = millis();
   lastSelectDebounceTime = millis();
@@ -139,7 +138,6 @@ void packetMonitorMenu() {
     }
   }
 }
-
 void beaconSpamScreen(uint8_t selectedItem) {
   lastUpDebounceTime = millis();
   lastDownDebounceTime = millis();
@@ -183,18 +181,13 @@ void setup() {
   pinMode(BUTTON_SELECT, INPUT_PULLUP);
   pinMode(BUTTON_BACK, INPUT_PULLUP);
 
-  // Ицициализация таймеров
-  lastFrameTime = millis(); 
-  lastBootLogoTime = millis();
-  lastActionTime = millis();
-
   // Инициализация EEPROM
   EEPROM.begin(512);
 
   // Инициализация настроек
-  if (EEPROM.read(0) != FIRMWARE_BUILD) { // Если первый запуск
+  if (EEPROM.read(0) != SETTINGS_VERSION) { // Если первый запуск
     EEPROM.put(1, settings);              // Пишем стандартные настройки
-    EEPROM.write(0, FIRMWARE_BUILD);      // Делаем первый запуск не актуальным
+    EEPROM.write(0, SETTINGS_VERSION);      // Делаем первый запуск не актуальным
     EEPROM.commit();                      // Записываем в EEPROM
   } else {                                // Если не первый запуск
     EEPROM.get(1, settings);              // Читаем настройки
@@ -204,17 +197,22 @@ void setup() {
   u8g2.begin();
   u8g2.setContrast(OLED_CONTRAST);
 
+    // Ицициализация таймеров
+  lastFrameTime = millis(); 
+  lastBootLogoTime = millis();
+  lastActionTime = millis();
+}
+// Цикл
+void loop() {
+  handleBattery();
+  static uint8_t selectedItem = 0;
+
   // Вывод экрана с логотипом
   while (millis() - lastBootLogoTime <= settings.BOOT_LOGO_DELAY && settings.BOOT_LOGO_DELAY) {
     u8g2.clearBuffer();
     u8g2.drawXBM(31, 27, 66, 11, bitmap_boot_logo);
     u8g2.sendBuffer();
   }
-}
-// Цикл
-void loop() {
-  handleBattery();
-  static uint8_t selectedItem = 0;
 
   // Вверх
   if (digitalRead(BUTTON_UP) == LOW && (millis() - lastUpDebounceTime) > DEBOUNCE_DELAY) {
