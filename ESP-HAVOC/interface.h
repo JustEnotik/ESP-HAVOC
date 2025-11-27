@@ -82,7 +82,7 @@ void bufferStationMainMenu(
   u8g2.drawXBM(72, 22, 16, 16, icons[2 + selectedItem]);
   u8g2.drawXBM(120, 22, 16, 16, icons[3 + selectedItem]);
   u8g2.drawXBM(96, 22, 16, 16, icons[4 + selectedItem]); */
-  u8g2.drawXBM(28, 41, 8, 8, bitmap_small_arrows2_icon);
+  u8g2.drawXBM(28, 41, 8, 8, bitmap_small_arrows_icon);
 
   int indices[] = {-1, 0, 1, 2, 4, 3};
   int positions[] = {0, 24, 48, 72, 120, 96};
