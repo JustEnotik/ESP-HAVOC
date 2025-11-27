@@ -1,6 +1,6 @@
 <!-- Логотип ESP-HAVOC -->
 <p align="center">
-      <img src="https://i.ibb.co/jkmqgdHB/10.png" width="580">
+      <img src="https://github.com/JustEnotik/ESP-HAVOC/blob/main/LOGO.png?raw=true" width="580">
 </p>
 
 <!-- Плашки / Бейджи -->
