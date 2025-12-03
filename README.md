@@ -19,6 +19,12 @@
       A compact, low-power Wi-Fi attack and monitoring tool using the MakerGO SuperMini (ESP32-C3). Currently features Packet Monitor (sniffing) and Beacon Spammer (signal flooding). More features are actively being developed.
 </p>
 
+<!-- Рекод -->
+<h2 align="center">Attention</h2>
+<p align="center">
+      The project is currently being recoded from the ESP32-C3 microcontroller to the ESP32-S3.
+</p>
+
 <!-- Дисклеймер -->
 <h2 align="center">Disclaimer</h2>
 <p align="center">
