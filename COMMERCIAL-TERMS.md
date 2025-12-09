@@ -1,4 +1,4 @@
-# Commercial Terms
+Commercial Terms
 
 1. Prohibited Commercial Use
    Commercial use of this software is prohibited without explicit permission
