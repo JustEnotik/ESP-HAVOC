@@ -5,18 +5,18 @@
 
 <!-- Плашки / Бейджи -->
 <p align="center">
-      <a href="https://github.com/JustEnotik/ESP-HAVOC/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/License-MIT-c60000?style=flat" alt="MIT Badge"></a>
+      <a href="https://github.com/JustEnotik/ESP-HAVOC/blob/main/LICENSE.md"><img src="https://img.shields.io/badge/License-Apache%202.0-c60000?style=flat&logo=apache" alt="Apache 2.0 Badge"></a>
       <a href="https://github.com/espressif/arduino-esp32/releases/tag/3.0.0"><img src="https://img.shields.io/badge/ESP32-3.0.0-c60000?style=flat&logo=espressif" alt="ESP32 Badge"></a>
       <a href="https://github.com/olikraus/U8g2_Arduino/releases/tag/2.35.30"><img src="https://img.shields.io/badge/U8g2-2.35.30-c69f00?style=flat" alt="U8g2 Badge"></a>
       <a href="https://github.com/arduino/arduino-ide/releases/tag/2.3.6"><img src="https://img.shields.io/badge/Arduino%20IDE-2.3.6-00b8c6?style=flat&logo=arduino" alt="Arduino Badge"></a>
       <a href="https://https://t.me/ESPHAVOC"><img src="https://img.shields.io/badge/Telegram-Channel-00afff?style=flat&logo=telegram" alt="Telegram Badge"></a>
-      <a href="https://wokwi.com/projects/446181795159727105"><img src="https://img.shields.io/badge/Wokwi-Simulation-7e7e7e?style=flat" alt="Wowki Badge"></a>
+      <a href="https://wokwi.com/projects/449078278697086977"><img src="https://img.shields.io/badge/Wokwi-Simulation-7e7e7e?style=flat" alt="Wowki Badge"></a>
 </p>
 
 <!-- Текст -->
 <h2 align="center">About</h2>
 <p align="center">
-      A compact, low-power Wi-Fi attack and monitoring tool using the MakerGO SuperMini (ESP32-C3). Currently features Packet Monitor (sniffing) and Beacon Spammer (signal flooding). More features are actively being developed.
+      A compact, low-power Wi-Fi attack and monitoring tool using the ESP32-S3. Currently features Packet Monitor (sniffing) and Beacon Spammer (signal flooding). More features are actively being developed.
 </p>
 
 <!-- Рекод -->
