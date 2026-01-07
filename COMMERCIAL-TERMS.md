@@ -16,7 +16,7 @@ Commercial Terms
 
 3. How to Request Commercial Use
    To request commercial rights, open a GitHub Issue labeled
-   "commercial-request". Do not send email.
+   "Commercial request". Do not send email.
 
 4. Liability
    These terms do not modify the warranty disclaimer or liability limitations
