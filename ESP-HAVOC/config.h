@@ -1,66 +1,119 @@
-#ifndef CONFIG_H 
-#define CONFIG_H 
+// Что бы не было ошибок
+#pragma once // В душе не чаю
 
 // Библиотеки
-#include <Arduino.h>                       // Импорт библиотеки для работы базовых функций
-#include <U8g2lib.h>                       // Импорт библиотеки для OLED экрана/дисплея
+#include <Arduino.h> // Базовые функции/фишки Arduino
+#include <U8g2lib.h> // Вывод на дисплей
 
 // Файлы
-#include "bitmap.h"
+#include "bitmap.h" // Битмапы
 
 // Экран 
-const int OLED_FPS = 30;                   // Количество кадров в секунду
-const int OLED_SDA = 6;                    // Пин SDA
-const int OLED_SCL = 7;                    // Пин SCL/SCK
-const int OLED_RESET = U8X8_PIN_NONE;      // Пин сброса
-const uint8_t OLED_CONTRAST = 255;         // Контрастность/яркость
-const u8g2_cb_t *OLED_ROTATION = U8G2_R0;  // Ориентация
+const unsigned short OLED_FPS = 30; // Количество кадров в секунду
+const unsigned short OLED_SDA = 8; // Пин SDA (I2C data)
+const unsigned short OLED_SCL = 9; // Пин SCL/SCK (I2C clock)
+const unsigned short OLED_RESET = U8X8_PIN_NONE; // Пин сброса (I2C reset)
+const uint8_t OLED_CONTRAST = 255; // Контрастность/яркость
 
 // Интерфейс
-// const unsigned long BOOT_LOGO_DELAY = 1000; // Время показа логотипа при запуске (0 если отключено) | Можно изменить в  настройках
+// unsigned long SPLASH_DELAY = 1000; // Время показа логотипа при запуске (0 если отключено)
 const uint8_t *UI_FONT = u8g2_font_profont11_tr; // Шрифт
-const char* MAIN_MENU_ITEMS[] = {"Wi-Fi", "Bluetooth", "BadUSB/BLE", "About", "Settings"}; // Название пунктов главного меню
-const char* WIFI_MENU_ITEMS[] = {"Back", "Beacon Spam", "Packet Monitor" /*, "Deauther" */}; // Название пунктов Wi-Fi меню
-const char* BLUETOOTH_MENU_ITEMS[] = {"Back", "Apple Spam"}; // Название пунктов Bluetooth меню
-const char* BEACON_SPAM_MENU_ITEMS[] = {"Back", "Rickroll Spam", "Random Spam", "Funny Spam"}; // Название пунктов Beacon Spam меню
-const char* SETTINGS_MENU_ITEMS[] = {"Back", "Interface"}; // Название пунктов Settings меню
-const char* INTERFACE_SETTINGS_MENU_ITEMS[] = {"Back", "Main Menu Type", "Standby Timeout", "Boot Logo Delay"}; // Название пунктов Interface Settings меню
-const char* INTERFACE_MAIN_MENU_TYPE_SETTINGS_MENU_ITEMS[] = {"Back", "Havoc (default)", "Station"}; // Название пунктов Interface Main Menu Type Settings меню
-const char* INTERFACE_STANDBY_TIMEOUT_SETTINGS_MENU_ITEMS[] = {"Back", "Disabled", "30 Sec", "1 Min", "5 Min (default)", "15 Min", "30 Min"}; // Название пунктов Interface Standby Timeout Settings меню
-const char* INTERFACE_BOOT_LOGO_DELAY_SETTINGS_MENU_ITEMS[] = {"Back", "Disabled", "250 Ms", "500 Ms", "1 Sec (default)", "2 Sec", "5 Sec"}; // Название пунктов Interface Boot Logo Delay Settings меню
-const unsigned char* MAIN_MENU_ICONS[] = {bitmap_wifi_icon, bitmap_bluetooth_icon, bitmap_usb_icon, bitmap_about_icon, bitmap_settings_icon};
-const unsigned char* WIFI_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_wifi_icon, bitmap_small_packetmonitor_icon /*, bitmap_small_skull_icon */};
-const unsigned char* BLUETOOTH_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_wifi_icon};
-const unsigned char* BEACON_SPAM_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_wifi_icon, bitmap_small_wifi_icon, bitmap_small_wifi_icon};
-const unsigned char* SETTINGS_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_interface_icon};
-const unsigned char* INTERFACE_SETTINGS_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon};
-const unsigned char* INTERFACE_MAIN_MENU_TYPE_SETTINGS_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon};
-const unsigned char* INTERFACE_STANDBY_TIMEOUT_SETTINGS_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon};
-const unsigned char* INTERFACE_BOOT_LOGO_DELAY_SETTINGS_MENU_ICONS[] = {bitmap_small_back_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon, bitmap_small_interface_icon};
+const u8g2_cb_t *UI_ROTATION = U8G2_R0; // Ориентация
+
+// Меню
+struct MENU_ITEM_NAMES {
+  const char* MAIN[5] = {"Wi-Fi", "Bluetooth", "BadUSB", "About", "Settings"};
+  const char* WIFI[4] = {"Back", "Deauth Flood", "Beacon Flood", "Packet Monitor"};
+  const char* BEACON_FLOOD[4] = {"Back", "Funny Flood", "Ricky Flood", "Random Flood"};
+  // const char* BLUETOOTH[] = {};
+  // const char* ABOUT[] = {};
+  const char* SETTINGS[5] = {"Back", "Main Menu Type", "Battery Icon Type", "Standby Timeout", "Splash Timeout"};
+  const char* BATTERY_ICON_TYPE[4] = {"Back", "Disabled", "4 Bars (default)", "3 Bars"};
+  const char* MAIN_MENU_TYPE[4] = {"Back", "Havoc (default)", "Station"};
+  const char* STANDBY_TIMEOUT[5] = {"Back", "Disabled", "30 Sec", "1 Min (default)", "5 Min"};
+  const char* SPLASH_TIMEOUT[5] = {"Back", "Disabled", "250 Ms", "500 Ms (default)", "1 Sec"};
+};
+struct MENU_ICON_NAMES {
+  const unsigned char* MAIN[5] = {bitmap_wifi, bitmap_bluetooth, bitmap_usb, bitmap_about, bitmap_settings};
+  const unsigned char* WIFI[4] = {bitmap_small_back, bitmap_small_skull, bitmap_small_wifi, bitmap_small_packet_monitor};
+  const unsigned char* BEACON_FLOOD[4] = {bitmap_small_back, bitmap_small_wifi, bitmap_small_wifi, bitmap_small_question};
+  // const unsigned char* BLUETOOTH[] = {};
+  // const unsigned char* ABOUT[] = {};
+  const unsigned char* SETTINGS[5] = {bitmap_small_back, bitmap_small_interface, bitmap_small_battery, bitmap_small_watch, bitmap_small_watch};
+  const unsigned char* BATTERY_ICON_TYPE[4] = {bitmap_small_back, bitmap_small_battery, bitmap_small_battery, bitmap_small_battery};
+  const unsigned char* MAIN_MENU_TYPE[3] = {bitmap_small_back, bitmap_small_interface, bitmap_small_interface};
+  const unsigned char* STANDBY_TIMEOUT[4] = {bitmap_small_back, bitmap_small_watch, bitmap_small_watch, bitmap_small_watch};
+  const unsigned char* SPLASH_TIMEOUT[4] = {bitmap_small_back, bitmap_small_watch, bitmap_small_watch, bitmap_small_watch};
+};
+struct MENU_ITEM_COUNT {
+  const unsigned short MAIN = 5;
+  const unsigned short WIFI = 4;
+  const unsigned short BEACON_FLOOD = 4;
+  // const unsigned short BLUETOOTH = sizeof(MENU_ITEM_NAMES.BLUETOOTH) / sizeof(MENU_ITEM_NAMES.BLUETOOTH[0]);
+  // const unsigned short ABOUT = sizeof(MENU_ITEM_NAMES.ABOUT) / sizeof(MENU_ITEM_NAMES.ABOUT[0]);
+  const unsigned short SETTINGS = 5;
+  const unsigned short BATTERY_ICON_TYPE = 4;
+  const unsigned short MAIN_MENU_TYPE = 3;
+  const unsigned short STANDBY_TIMEOUT = 4;
+  const unsigned short SPLASH_TIMEOUT = 4;
+};
+struct MENU_POINTERS {
+  unsigned short MAIN = 0;
+  unsigned short WIFI = 0;
+  unsigned short BEACON_FLOOD = 0;
+  // unsigned short BLUETOOTH = 0;
+  // unsigned short ABOUT = 0;
+  unsigned short SETTINGS = 0;
+  unsigned short BATTERY_ICON_TYPE = 0;
+  unsigned short MAIN_MENU_TYPE = 0;
+  unsigned short STANDBY_TIMEOUT = 0;
+  unsigned short SPLASH_TIMEOUT = 0;
+};
+
+MENU_ITEM_NAMES menuItemNames;
+MENU_ICON_NAMES menuIconNames;
+MENU_ITEM_COUNT menuItemCount;
+MENU_POINTERS menuPointers;
 
 // Кнопки
-const int BUTTON_UP = 4;                   // Кнопка Up/Вверх
-const int BUTTON_DOWN = 3;                 // Кнопка Down/Вниз
-const int BUTTON_SELECT = 2;               // Кнопка Select/Выбор
-const int BUTTON_BACK = 1;                 // Кнопка Back/Назад
-const unsigned long DEBOUNCE_DELAY = 250;  // Задержка антидребезга
+const unsigned short BUTTON_UP = 2; // Кнопка Up/Вверх
+const unsigned short BUTTON_DOWN = 3; // Кнопка Down/Вниз
+const unsigned short BUTTON_SELECT = 4; // Кнопка Select/Выбор
+const unsigned short BUTTON_BACK = 5; // Кнопка Back/Назад
+const unsigned long DEBOUNCE_DELAY = 250; // Задержка антидребезга
 
 // Анимация ожидания
-const unsigned long STANDBY_TIMEOUT = 30000; // Время ожидания анимации | Можно изменить в  настройках
+// unsigned long STANDBY_TIMEOUT = 30000; // Время ожидания анимации
 
 // Батарея
-const int ADC_RESOLUTION = 4095;           // Разрешение АЦП
-const int VOLTAGE_PIN = 0;                 // Пин измерения напряжения (К нему нежно подключить плюс и минус батареи через 10кОм резисторы)
-const float VOLTAGE_REF = 3.3;             // Опорное напряжение АЦП
-const float VOLTAGE_MAX = 4.5;             // Максимальное напряжение батареи
-const float VOLTAGE_MIN = 3.5;             // Минимальное напряжение батареи (При питании на пин 5V)
-const float VOLTAGE_SMOOTH = 0.1;          // Коофицент сглаживания
-const float VOLTAGE_CHARGE = 4.75;         // Минимальное напряжение для определения зарядки
-const float VOLTAGE_MULTIPLIER = 2.0;      // Коофицент делителя
+const unsigned short ADC_RESOLUTION = 4095; // Разрешение АЦП
+const unsigned short VOLTAGE_PIN = 1; // Пин измерения напряжения (К нему нежно подключить 5V и GND пин через 10кОм резисторы)
+const float VOLTAGE_REF = 3.3; // Опорное напряжение АЦП
+const float VOLTAGE_MAX = 4.0; // Максимальное напряжение батареи
+const float VOLTAGE_MIN = 3.5; // Минимальное напряжение батареи (При питании на пин 5V)
+const float VOLTAGE_SMOOTH = 0.1; // Коофицент сглаживания
+const float VOLTAGE_MULTIPLIER = 2.0; // Коофицент делителя
 
-// Другое
-const unsigned short SETTINGS_VERSION = 1; // Версия прошивки
-const char* FIRMWARE_VERSION = "Stable Release 1.0.2"; // Версия прошивки
-const char* BUILD_DATE = "29.11.25";      // Дата билда прошивки
+// Прошивка
+// const unsigned short SETTINGS_VERSION = 1; // Версия настроек
+const char* FIRMWARE_VERSION = "Stable Release 1.1.0"; // Версия прошивки
+const char* BUILD_DATE = "01.01.70"; // Дата билда прошивки
 
-#endif
+// Файлы
+constexpr char CONFIG_FILE_PATH[] = "/.esphavoc/config.bin";
+
+// Анимация ожидания
+const int DVD_LOGO_WIDTH = 27; // Ширина битмапа
+const int DVD_LOGO_HEIGHT = 16; // Высота битмапа
+const int DVD_VELOCITY_MULTIPLIER = 1; // Множитель направлений по координатам (множитель скорости)
+const unsigned char* DVD_BITMAP = bitmap_standby; // Битмап
+
+// Структура настроеек для сохранения в LittleFS (EEPROM)
+struct settings {
+  unsigned short BATTERY_ICON_TYPE = 2; // Тип главного меню (1 - Disabled, 2 - 4 Bars, 3 - 3 Bars)
+  unsigned short MAIN_MENU_TYPE = 1; // Тип главного меню (1 - Havoc/Classic, 2 - Station)
+  unsigned long STANDBY_TIMEOUT = 30000; // Тайм-аут режима ожидания
+  unsigned long SPLASH_TIMEOUT = 500; // Заддержка логотипа при запуске
+};
+settings defaultSettings;
+settings currentSettings;
