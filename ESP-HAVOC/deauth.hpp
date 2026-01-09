@@ -1,4 +1,4 @@
-// Взял код с репозитория electronicminer/ESP32-s3-Deauther-master-with-apple-juice/tree/main
+// Взял код с репозитория electronicminer/ESP32-s3-Deauther-master-with-apple-juice
 
 // Что бы не было ошибок
 #pragma once // В душе не чаю
