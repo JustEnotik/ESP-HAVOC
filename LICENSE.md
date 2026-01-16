@@ -1,4 +1,5 @@
-  IMPORTANT: This is a modified Apache 2.0 license. Commercial use is subject to the restrictions in COMMERCIAL-TERMS.md.
+  IMPORTANT: This is a modified Apache 2.0 license. 
+  Commercial use is strictly prohibited without written permission and is subject to the restrictions in COMMERCIAL-TERMS.md.
   
   Apache License
   Version 2.0, January 2004
