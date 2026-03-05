@@ -87,12 +87,11 @@ const unsigned long DEBOUNCE_DELAY = 250; // Задержка антидребе
 
 // Батарея
 const unsigned short ADC_RESOLUTION = 4095; // Разрешение АЦП
-const unsigned short VOLTAGE_PIN = 1; // Пин измерения напряжения (К нему нежно подключить 5V и GND пин через 10кОм резисторы)
+const unsigned short VOLTAGE_PIN = 1; // Пин измерения напряжения (К нему нежно подключить вход стабилизатора и GND пин через 10кОм резисторы)
 const float VOLTAGE_REF = 3.3; // Опорное напряжение АЦП
-const float VOLTAGE_MAX = 4.0; // Максимальное напряжение батареи
-const float VOLTAGE_MIN = 3.5; // Минимальное напряжение батареи (При питании на пин 5V)
-const float VOLTAGE_SMOOTH = 0.1; // Коофицент сглаживания
-const float VOLTAGE_MULTIPLIER = 2.0; // Коофицент делителя
+const float VOLTAGE_MAX = 4.2; // Максимальное напряжение батареи
+const float VOLTAGE_MIN = 3.3; // Минимальное напряжение батареи (При питании на пин входа стабилизатора)
+const float VOLTAGE_MULTIPLIER = 2.2; // Коофицент делителя
 
 // Прошивка
 // const unsigned short SETTINGS_VERSION = 1; // Версия настроек
