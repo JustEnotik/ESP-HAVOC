@@ -35,7 +35,6 @@ void drawBattery(U8G2& u8g2) {
     u8g2.drawXBM(108, 4, 16, 7, battery_charging); 
   } else if (batteryVoltage > VOLTAGE_MIN) {
     switch (currentSettings.BATTERY_ICON_TYPE) { // Выбор правильного типа
-      case 1: break; // Отключена
       case 2: switch (batteryPercent) {   // Выбор правильного битмапа с 4-мя пунктами если подключен аккумулятор к пину
         case 1 ... 25: u8g2.drawXBM(108, 4, 16, 7, battery_4_low); break; // Отрисовка разряженой батареи
         case 26 ... 50: u8g2.drawXBM(108, 4, 16, 7, battery_4_middle); break; // Отрисовка на половину заряженой баттареи
