@@ -95,8 +95,8 @@ const float VOLTAGE_MULTIPLIER = 2.2; // Коофицент делителя
 
 // Прошивка
 // const unsigned short SETTINGS_VERSION = 1; // Версия настроек
-const char* FIRMWARE_VERSION = "Stable Release 1.1.0"; // Версия прошивки
-const char* BUILD_DATE = "01.01.70"; // Дата билда прошивки
+const char* FIRMWARE_VERSION = "Nightly 1.1.0-2"; // Версия прошивки
+const char* BUILD_DATE = "07.03.26"; // Дата билда прошивки
 
 // Файлы
 constexpr char CONFIG_FILE_PATH[] = "/.esphavoc/config.bin";
